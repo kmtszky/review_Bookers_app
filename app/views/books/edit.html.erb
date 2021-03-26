@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 <h1>Editing Book</h1>
 
+<%= render 'books/error.messages', book: @book %>
+
 <%= form_with model: @book, local: true do |f| %>
   <div class="field">
     <%= f.label :Title %><br />
