@@ -1,14 +1,15 @@
 <div id="error_explanation">
-  <% if book.erros_any? %>
-  <% if book.errors.count == 1 %>
-    <h2><%= book.erros.count %> error prohibited this book from being saved:</h2>
-  <% else %>
-    <h2><%= book.error.count %> errors prohibited this book from being saved:</h2>
-  <% end %>
-  <% book.errors.full_messages.each do |message| %>
+  <% if book.errors.any? %>
+    <% if book.errors.count == 1 %>
+      <h2><%= book.errors.count %> error prohibited this book from being saved:</h2>
+    <% else %>
+      <h2><%= book.errors.count %> errors prohibited this book from being saved:</h2>
+    <% end %>
+
     <ul>
-      <li><%= message %></li>
+      <% book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
     </ul>
   <% end %>
-<% end %>
 </div>
